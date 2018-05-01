@@ -1,6 +1,7 @@
-#[macro_use] extern crate cpython;
+#[macro_use]
+extern crate cpython;
 
-use cpython::{PyString, Python, PyResult};
+use cpython::{PyResult, PyString, Python};
 
 // A trivial function which returns a static string to the caller
 fn hello(py: Python) -> PyResult<PyString> {
