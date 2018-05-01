@@ -9,7 +9,7 @@ fn hello(py: Python) -> PyResult<PyString> {
 }
 
 // A more complete function which accept a Python string as argument and return a formatted string
-fn greetings(py: Python, name: PyString) -> PyResult<PyString> {
+fn greetings(py: Python, name: &PyString) -> PyResult<PyString> {
     // Python string can be unicode or byte string on Python < 3.x
     // We need to handle the case that the Python string contains invalid Unicode code points
     match name.to_string(py) {
@@ -35,7 +35,7 @@ fn greetings(py: Python, name: PyString) -> PyResult<PyString> {
 py_module_initializer!(example, initexample, PyInit_example, |py, m| {
     // Expose our two functions hello() and greetings() as `extern "C"`
     try!(m.add(py, "hello", py_fn!(py, hello())));
-    try!(m.add(py, "greetings", py_fn!(py, greetings(name: PyString))));
+    try!(m.add(py, "greetings", py_fn!(py, greetings(name: &PyString))));
 
     // Initialiser's macro needs a Result<> as return value
     Ok(())
