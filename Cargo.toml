@@ -2,6 +2,7 @@
 name = "python-rust-example"
 version = "0.1.0"
 authors = ["Daniele Esposti <daniele.esposti@corp.badoo.com>"]
+edition = "2018"
 
 [lib]
 name = "example"

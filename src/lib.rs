@@ -34,8 +34,8 @@ fn greetings(py: Python, name: &PyString) -> PyResult<PyString> {
 // To build a Python compatible module we need an intialiser which expose the public interface
 py_module_initializer!(example, initexample, PyInit_example, |py, m| {
     // Expose our two functions hello() and greetings() as `extern "C"`
-    try!(m.add(py, "hello", py_fn!(py, hello())));
-    try!(m.add(py, "greetings", py_fn!(py, greetings(name: &PyString))));
+    r#try!(m.add(py, "hello", py_fn!(py, hello())));
+    r#try!(m.add(py, "greetings", py_fn!(py, greetings(name: &PyString))));
 
     // Initialiser's macro needs a Result<> as return value
     Ok(())
