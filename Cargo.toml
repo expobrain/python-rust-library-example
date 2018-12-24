@@ -7,7 +7,5 @@ authors = ["Daniele Esposti <daniele.esposti@corp.badoo.com>"]
 name = "example"
 crate-type = ["dylib"]
 
-[dependencies.cpython]
-git = "https://github.com/dgrunwald/rust-cpython.git"
-default-features = false
-features = ["python27-sys"]
+[dependencies]
+cpython = "*"
